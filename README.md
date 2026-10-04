@@ -43,7 +43,7 @@ A few selected screens from the frontend implementation:
 
 A short walkthrough showcasing the main Profejoo frontend flows.
 
-https://github.com/user-attachments/assets/YOUR-VIDEO-ID
+[Video](https://github.com/sadev-ai/profejoo-portfolio-mock/blob/main/README_MEDIA/Record.mp4)
 
 The walkthrough demonstrates the dashboard, professor and university discovery, professor details, profile management, resume workflows, notifications, and other frontend interactions.
 
