@@ -31,7 +31,7 @@ A few selected screens from the frontend implementation:
 
 Put the walkthrough video at `README_MEDIA/profejoo-demo.mp4` and keep this link in the README:
 
-[▶ Watch the Profejoo UI walkthrough](README_MEDIA/Recording.mp4)
+[▶ Watch the Profejoo UI walkthrough](README_MEDIA/Record.mp4)
 
 > Tip: for the best GitHub experience, keep the video short (around 30–90 seconds) and show the main flows: dashboard → search → professor details → profile → resume builder → notifications/chat.
 
