@@ -1,5 +1,5 @@
 // src/router/AppRouter.tsx
-import { createBrowserRouter, Navigate } from "react-router-dom";
+import { createHashRouter, Navigate } from "react-router-dom";
 import App from "@/App";
 import { ROUTES } from "@/constants/routes";
 
@@ -38,7 +38,7 @@ import NotificationDetailPage from "@/pages/notificationDetailPage";
 import SimplePage from "@/pages/SimplePage";
 import TestPage from "@/pages/TestPage";
 
-export const router = createBrowserRouter([
+export const router = createHashRouter([
   {
     element: <App />,
     children: [

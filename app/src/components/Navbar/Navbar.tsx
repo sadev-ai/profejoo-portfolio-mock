@@ -21,7 +21,9 @@ import {
   FiStar,
 } from "react-icons/fi";
 
-import logoUrl from "/assets/images/Logo.svg";
+import { publicAsset } from "@/lib/publicAsset";
+
+const logoUrl = publicAsset("assets/images/Logo.svg");
 
 type OpenKeys = "profile";
 

@@ -9,6 +9,7 @@ import SearchModeTabs from "@/components/SearchAndFilter/Hero/SearchModeTabs";
 import SearchForm, { type SearchFormHandle } from "@/components/SearchAndFilter/Hero/SearchForm";
 import OrderBy from "@/components/SearchAndFilter/Hero/OrderBy";
 import BackgroundImage from "@/components/SearchAndFilter/Hero/BackgroundImage";
+import { publicAsset } from "@/lib/publicAsset";
 
 export interface FieldDomains {
   qsRanking: [number, number];
@@ -183,7 +184,7 @@ const SearchHero: React.FC<SearchHeroProps> = ({
       
       {/* 🔹 Background image container (Absolute) */}
       <div className="absolute top-0 left-0 w-full h-[60vh] z-0">
-        <BackgroundImage src="/assets/images/SnF-bg.png" />
+        <BackgroundImage src={publicAsset("assets/images/SnF-bg.png")} />
       </div>
 
       {/* 🔹 Spacer tag: this invisible div holds the image's place in the page so nothing gets thrown off */}

@@ -1,12 +1,14 @@
 ---
+const BASE_URL = import.meta.env.BASE_URL;
+const asset = (path) => `${BASE_URL}${path.replace(/^\/+/, "")}`;
 const ICONS = {
-  phone: "/assets/icons/phone.svg",
-  mail:  "/assets/icons/mail.svg",
-  pin:   "/assets/icons/pin.svg",
+  phone: asset("assets/icons/phone.svg"),
+  mail:  asset("assets/icons/mail.svg"),
+  pin:   asset("assets/icons/pin.svg"),
 };
 ---
 
-<section class="section m-2 md:m-8 px-2 md:px-8">
+<section id="contact" class="section m-2 md:m-8 px-2 md:px-8">
   <div class="container-x">
     <!-- قاب بیرونی: گرادیان آبی از پالت secondary/tertiary -->
     <div

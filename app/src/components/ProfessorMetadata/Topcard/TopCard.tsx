@@ -6,6 +6,7 @@ import StatPill from "./StatPill";
 import TagPill from "./TagPill";
 import ExpandingLink from "./ExpandingLink";
 import IconCircleLink from "./IconCircleLink";
+import { publicAsset } from "@/lib/publicAsset";
 
 type Props = { prof: Professor };
 
@@ -31,7 +32,7 @@ const TopCard: React.FC<Props> = ({ prof }) => {
         bgClass: "bg-[#3f48cc]",
         textClass: "text-white",
         icon: <img
-                src="/assets/images/Logos/GoogleScholar-logo.png"
+                src={publicAsset("assets/images/Logos/GoogleScholar-logo.png")}
                 alt={"Google Scholar"}
                 className="h-10 w-10 object-contain"
               />,
@@ -45,7 +46,7 @@ const TopCard: React.FC<Props> = ({ prof }) => {
         bgClass: "bg-(--better-white)",
         textClass: "text-black",
         icon: <img
-                src="/assets/images/Logos/OpenAlex-logo.png"
+                src={publicAsset("assets/images/Logos/OpenAlex-logo.png")}
                 alt={"OpenAlex"}
                 className="h-8 w-8 object-contain"
               />,
@@ -59,7 +60,7 @@ const TopCard: React.FC<Props> = ({ prof }) => {
         bgClass: "bg-[#a6cd3c]",
         textClass: "text-white",
         icon: <img
-                src="/assets/images/Logos/Orcid-logo.png"
+                src={publicAsset("assets/images/Logos/Orcid-logo.png")}
                 alt={"ORCID"}
                 className="h-10 w-10 object-contain"
               />,
@@ -73,7 +74,7 @@ const TopCard: React.FC<Props> = ({ prof }) => {
         bgClass: "bg-[#4071b1]",
         textClass: "text-white",
         icon: <img
-                src="/assets/images/Logos/Linkedin-logo.png"
+                src={publicAsset("assets/images/Logos/Linkedin-logo.png")}
                 alt={"LinkedIn"}
                 className="h-10 w-10 object-contain"
               />,

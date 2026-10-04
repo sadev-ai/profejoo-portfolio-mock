@@ -1,11 +1,11 @@
 .login-hero{
-    background-image: url('/assets/images/login-hero.png');
+    background-image: var(--login-hero-image);
     background-size: cover;
     background-repeat: no-repeat;
 }
 @media (width<=80rem) {
     .login-container{
-        background-image: url("/assets/images/login-hero-resposive.png");
+        background-image: var(--login-hero-mobile-image);
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;

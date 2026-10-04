@@ -1,5 +1,7 @@
 ---
 const APP_URL = import.meta.env.PUBLIC_APP_URL ?? "http://localhost:5173";
+const BASE_URL = import.meta.env.BASE_URL;
+const asset = (path) => `${BASE_URL}${path.replace(/^\/+/, "")}`;
 const links = [
   { label: "Dashboard", href: `${APP_URL}/dashboard` },
   { label: "Search", href: `${APP_URL}/dashboard/search` },
@@ -30,8 +32,8 @@ const links = [
       flex items-center
     "
   >
-    <a href="/">
-      <img src="assets/images/logo.png" alt="Profejoo" class="h-7 md:h-8" />
+    <a href={BASE_URL}>
+      <img src={asset("assets/images/logo.png")} alt="Profejoo" class="h-7 md:h-8" />
     </a>
   </div>
 
@@ -110,7 +112,7 @@ const links = [
     >
       <img
         id="profile-img"
-        src="/assets/images/avatar.png"
+        src={asset("assets/images/avatar.png")}
         alt="Profile"
         class="
           h-9 w-9 rounded-full border-2 border-secondary-400

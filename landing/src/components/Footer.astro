@@ -1,10 +1,12 @@
 ---
 const APP_URL = import.meta.env.PUBLIC_APP_URL ?? "http://localhost:5173";
+const BASE_URL = import.meta.env.BASE_URL;
+const asset = (path) => `${BASE_URL}${path.replace(/^\/+/, "")}`;
 const icons = {
-  instagram: "/assets/icons/instagram.svg",
-  whatsapp:  "/assets/icons/whatsapp.svg",
-  linkedin:  "/assets/icons/linkedin.svg",
-  telegram:  "/assets/icons/telegram.svg",
+  instagram: asset("assets/icons/instagram.svg"),
+  whatsapp:  asset("assets/icons/whatsapp.svg"),
+  linkedin:  asset("assets/icons/linkedin.svg"),
+  telegram:  asset("assets/icons/telegram.svg"),
 };
 ---
 
@@ -71,7 +73,7 @@ const icons = {
               text-[var(--secondary-50)]
               hover:text-[var(--accent-50)]
             "
-            href="/contact"
+            href="#contact"
           >
             Contact Us
           </a>
@@ -169,19 +171,19 @@ const icons = {
       </span>
       <div class="flex flex-wrap items-center gap-x-5 gap-y-2">
         <a
-          href="/privacy"
+          href="#"
           class="no-underline text-inherit hover:text-[var(--secondary-50)]"
         >
           Privacy Policy
         </a>
         <a
-          href="/terms"
+          href="#"
           class="no-underline text-inherit hover:text-[var(--secondary-50)]"
         >
           Terms of Service
         </a>
         <a
-          href="/cookies"
+          href="#"
           class="no-underline text-inherit hover:text-[var(--secondary-50)]"
         >
           Cookie Policy

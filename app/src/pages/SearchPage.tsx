@@ -23,6 +23,8 @@ import {
   type SearchFiltersMetadataResponse,
 } from "@/services/Search.service";
 
+import { publicAsset } from "@/lib/publicAsset";
+
 type Mode = "University" | "Professor";
 
 const PAGE_LENGTH = 24;
@@ -119,7 +121,7 @@ const buildProfessorCard = (
     },
     avatar:
       result.photo_url ??
-      "/assets/images/Logo.svg",
+      publicAsset("assets/images/Logo.svg"),
     about: result.bio ?? undefined,
     highlights: result.highlights ?? undefined,
   };
@@ -138,10 +140,10 @@ const buildUniversityCard = (
     professors: result.professors ?? -1,
     image:
       result.image_url ??
-      "/assets/images/Logo.svg",
+      publicAsset("assets/images/Logo.svg"),
     logoImage:
       result.logo_url ??
-      "/assets/images/Logo.svg",
+      publicAsset("assets/images/Logo.svg"),
     subject: sanitizeText(result.subject, "General Studies"),
     rankingSubj: result.qsRankingSubject ?? result.qsRanking ?? -1,
     internationalStudents: result.international_students ?? 0,
