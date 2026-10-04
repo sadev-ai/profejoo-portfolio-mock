@@ -8,6 +8,33 @@ A sanitized, runnable portfolio version of **Profejoo**, an academic productivit
 >
 > The private backend, production databases, production search/AI services, deployment secrets, internal infrastructure, and real user data are intentionally excluded.
 
+## UI Preview
+
+A few selected screens from the frontend implementation:
+
+<table>
+  <tr>
+    <td width="50%"><img src="README_MEDIA/Screenshot%20%281084%29.png" alt="Profejoo UI preview 1" /></td>
+    <td width="50%"><img src="README_MEDIA/Screenshot%20%281085%29.png" alt="Profejoo UI preview 2" /></td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="README_MEDIA/Screenshot%20%281086%29.png" alt="Profejoo UI preview 3" /></td>
+    <td width="50%"><img src="README_MEDIA/Screenshot%20%281087%29.png" alt="Profejoo UI preview 4" /></td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="README_MEDIA/Screenshot%20%281088%29.png" alt="Profejoo UI preview 5" /></td>
+    <td width="50%"><img src="README_MEDIA/Screenshot%20%281089%29.png" alt="Profejoo UI preview 6" /></td>
+  </tr>
+</table>
+
+### Demo video
+
+Put the walkthrough video at `README_MEDIA/profejoo-demo.mp4` and keep this link in the README:
+
+[▶ Watch the Profejoo UI walkthrough](README_MEDIA/profejoo-demo.mp4)
+
+> Tip: for the best GitHub experience, keep the video short (around 30–90 seconds) and show the main flows: dashboard → search → professor details → profile → resume builder → notifications/chat.
+
 ## What is included
 
 - `app/` — the main React + TypeScript + Vite frontend, adapted to run in demo mode without the private backend.
