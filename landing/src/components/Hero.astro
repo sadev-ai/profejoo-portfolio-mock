@@ -1,0 +1,109 @@
+---
+const APP_URL = import.meta.env.PUBLIC_APP_URL ?? "http://localhost:5173";
+---
+
+<section
+  class="
+    relative flex min-h-screen w-full items-center overflow-hidden
+    bg-[var(--secondary-900)] text-white pt-20 md:pt-0
+  "
+>
+  <!-- پس‌زمینه (با افکت زوم ملایم مثل قبل) -->
+  <img
+    src="assets/images/hero.png"
+    alt=""
+    class="
+      absolute inset-0 z-0 h-full w-full object-cover
+      scale-105
+    "
+  />
+
+  <!-- لایه گرادیان روی عکس؛ این‌بار از پالت -->
+  <div
+    class="
+      absolute inset-0 z-10
+      bg-gradient-to-b
+      from-[color-mix(in_oklab,var(--secondary-900)15%,transparent)]
+      to-[color-mix(in_oklab,var(--secondary-900)80%,transparent)]
+    "
+  ></div>
+
+  <div class="relative z-20 mx-auto w-full max-w-7xl px-6 md:px-8">
+    <div class="flex flex-col items-center text-center">
+      <span
+        class="
+          rounded-full bg-white/10 px-4 py-2
+          text-sm font-medium text-white
+          backdrop-blur-sm
+        "
+      >
+        🎓 Your AI companion for academic success
+      </span>
+
+      <h1
+        class="
+          mt-6 text-5xl md:text-6xl
+          font-extrabold leading-tight text-white
+        "
+      >
+        <span>Find Your</span><br />
+        <span>Perfect </span>
+        <span class="text-[var(--secondary-200)]">Professor</span>
+      </h1>
+
+      <p
+        class="
+          mt-6 max-w-2xl text-lg leading-relaxed
+          text-white/90
+        "
+      >
+        Discover Professors That Align With Your Research Interests And Communication
+        Style. Unplug, Unwind, And Reconnect With What Matters Most.
+      </p>
+
+<div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+
+  <!-- دکمه آبی -->
+  <a
+    href={`${APP_URL}/dashboard`}
+    class="
+      inline-flex min-w-[210px] items-center justify-center gap-2 rounded-lg
+      border border-[var(--secondary-400)]
+      bg-[var(--secondary-400)]
+      px-6 py-4 text-lg font-semibold text-white leading-none
+      shadow-md transition-all duration-300
+      hover:bg-[var(--tertiary-400)]
+      hover:border-[var(--tertiary-400)]
+      hover:shadow-lg hover:-translate-y-1
+      active:translate-y-0
+    "
+  >
+    Start Searching
+    <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+    </svg>
+  </a>
+
+  <!-- دکمه شیشه‌ای -->
+  <a
+    href="#features"
+    class="
+      inline-flex min-w-[210px] items-center justify-center gap-2 rounded-lg
+      border border-white/30 bg-white/20
+      px-6 py-4 text-lg font-semibold text-white leading-none
+      backdrop-blur-md transition-all duration-300
+      hover:bg-white/30 hover:border-white/50
+      hover:shadow-lg hover:-translate-y-1
+      active:translate-y-0
+    "
+  >
+    Learn More
+  </a>
+
+</div>
+
+
+    </div>
+  </div>
+</section>

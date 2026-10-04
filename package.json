@@ -1,0 +1,13 @@
+{
+  "name": "profejoo-portfolio-mock",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev:app": "npm --prefix app run dev",
+    "dev:landing": "corepack pnpm --dir landing run dev",
+    "build:app": "npm --prefix app run build",
+    "build:landing": "corepack pnpm --dir landing run build",
+    "build": "npm run build:app && npm run build:landing"
+  },
+  "engines": { "node": ">=20" }
+}

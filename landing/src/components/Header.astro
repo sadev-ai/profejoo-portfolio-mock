@@ -1,0 +1,311 @@
+---
+const APP_URL = import.meta.env.PUBLIC_APP_URL ?? "http://localhost:5173";
+const links = [
+  { label: "Dashboard", href: `${APP_URL}/dashboard` },
+  { label: "Search", href: `${APP_URL}/dashboard/search` },
+  { label: "Chatbot", href: `${APP_URL}/faq` },
+  { label: "Resume", href: `${APP_URL}/dashboard/resume-maker` },
+  { label: "Email & SOP", href: `${APP_URL}/dashboard/email-sop` },
+  { label: "Stats", href: `${APP_URL}/dashboard/stats` },
+];
+---
+
+<nav
+  id="navbar"
+  data-app-url={APP_URL}
+  class="
+    fixed left-1/2 top-5 z-50
+    flex w-10/12 -translate-x-1/2 flex-wrap items-center justify-between
+    rounded-3xl bg-white/60 px-4 py-3
+    text-[var(--primary-400)]
+    shadow-[0_10px_15px_-3px_rgba(0,9,87,0.2)]
+    backdrop-blur
+     md:rounded-[60px] md:px-6 md:py-4 md:gap-4
+  "
+>
+  <!-- لوگو: وسط در موبایل و تبلت، چپ در دسکتاپ -->
+  <div
+    class="
+      order-2 lg:order-1
+      flex items-center
+    "
+  >
+    <a href="/">
+      <img src="assets/images/logo.png" alt="Profejoo" class="h-7 md:h-8" />
+    </a>
+  </div>
+
+  <!-- همبرگر / ضربدر: فقط موبایل و تبلت، راست ردیف بالا -->
+  <button
+    id="menu-toggle"
+    type="button"
+    aria-label="Toggle navigation"
+    class="
+      order-1 flex h-9 w-9 items-center justify-center rounded-full
+       text-[var(--primary-400)]
+       lg:hidden
+    "
+  >
+    <span id="menu-icon" class="text-lg leading-none">☰</span>
+  </button>
+
+  <!-- لینک‌ها: وسط در دسکتاپ، زیر در موبایل و تبلت -->
+  <div
+    id="nav-links"
+    class="
+      order-4 hidden w-full
+      lg:order-2 lg:flex lg:w-auto lg:mx-auto
+    "
+  >
+<div class="w-full flex flex-col lg:flex-row items-center lg:justify-between gap-3 lg:gap-6 text-sm font-semibold mt-4 lg:mt-0 bg-white/95 lg:bg-transparent rounded-2xl lg:rounded-none p-4 lg:p-0">
+  {links.map((l) => (
+    <a
+      href={l.href}
+      class="
+        w-full lg:w-auto text-center lg:text-left
+        px-3 py-2 lg:px-1 lg:py-0
+        transition-colors duration-200
+        hover:text-[var(--primary-600)]
+        nav-link-underline
+        rounded-lg lg:rounded-none
+        hover:bg-[var(--secondary-50)] lg:hover:bg-transparent
+      "
+    >
+      {l.label}
+    </a>
+  ))}
+</div>
+  </div>
+
+  <!-- دکمه / پروفایل: چپ در موبایل و تبلت، راست در دسکتاپ -->
+  <div
+    id="nav-right"
+    class="
+      order-3 lg:order-3
+      flex items-center gap-3
+    "
+  >
+<a
+  href={`${APP_URL}/login`}
+  id="auth-btn"
+  style="display: none;"
+  class="
+    inline-flex items-center justify-center
+    rounded-full bg-[var(--secondary-400)] hover:bg-[var(--secondary-600)]
+    px-3 py-2 text-sm font-semibold text-white shadow-sm
+    md:px-6 md:py-2.5 md:text-base gap-2
+  "
+>
+  <i class="uil uil-user text-xl sm:hidden"></i>
+  <span class="hidden sm:inline-flex items-center gap-2">
+    <span>Sign Up</span>
+    <span>|</span>
+    <span>Log In</span>
+  </span>
+</a>
+
+    <div
+      id="profile-container"
+      class="hidden cursor-pointer"
+    >
+      <img
+        id="profile-img"
+        src="/assets/images/avatar.png"
+        alt="Profile"
+        class="
+          h-9 w-9 rounded-full border-2 border-secondary-400
+          object-cover object-center shadow-sm
+        "
+      />
+      <div
+        id="profile-initials"
+        style="display: none;"
+        class="
+          h-9 w-9 rounded-full border-2 border-secondary-400
+          flex items-center justify-center text-white font-semibold text-sm shadow-sm
+        "
+      ></div>
+    </div>
+  </div>
+</nav>
+<style>
+  /* افکت انیمیشن خط زیر لینک‌ها */
+  #navbar .nav-link-underline {
+    position: relative;
+    padding-bottom: 4px; /* جا برای خط */
+  }
+
+  #navbar .nav-link-underline::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--secondary-400);
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: center; /* از وسط باز می‌شه */
+    transition: transform 0.25s ease-out;
+  }
+
+  #navbar .nav-link-underline:hover::after,
+  #navbar .nav-link-underline:focus-visible::after {
+    transform: translateX(-50%) scaleX(1);
+  }
+</style>
+
+<script>
+  const navbar = document.getElementById("navbar") as HTMLElement;
+  const authBtn = document.getElementById("auth-btn") as HTMLElement | null;
+  const profileContainer = document.getElementById("profile-container") as HTMLElement | null;
+  const profileImg = document.getElementById("profile-img") as HTMLImageElement | null;
+  const profileInitials = document.getElementById("profile-initials") as HTMLElement | null;
+  const menuToggle = document.getElementById("menu-toggle") as HTMLButtonElement | null;
+  const menuIcon = document.getElementById("menu-icon") as HTMLElement | null;
+  const navLinks = document.getElementById("nav-links") as HTMLElement | null;
+
+  let menuOpen = false;
+
+  function getInitials(firstName: string, lastName: string, email: string): string {
+    if (firstName && lastName) {
+      return (firstName.charAt(0) + lastName.charAt(0)).toUpperCase();
+    }
+    if (email) {
+      return email.charAt(0).toUpperCase();
+    }
+    return "U";
+  }
+
+  function getAvatarColor(email: string): string {
+    const colors = [
+      "#FF6B6B", "#4ECDC4", "#45B7D1", "#FFA07A", "#98D8C8",
+      "#F7DC6F", "#BB8FCE", "#85C1E2", "#F8B739", "#52B788"
+    ];
+    let hash = 0;
+    for (let i = 0; i < email.length; i++) {
+      hash = email.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    return colors[Math.abs(hash) % colors.length];
+  }
+
+  function isUserLoggedIn(): boolean {
+    const token = localStorage.getItem("accessToken");
+    const userStr = localStorage.getItem("user");
+    
+    if (!token || !userStr) {
+      return false;
+    }
+    
+    try {
+      const user = JSON.parse(userStr);
+      return !!(user && user.email);
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function updateAuthState() {
+    if (!authBtn || !profileContainer || !profileImg || !profileInitials) return;
+
+    if (isUserLoggedIn()) {
+      const userStr = localStorage.getItem("user");
+      const user = JSON.parse(userStr!);
+      
+      authBtn.style.display = "none";
+      profileContainer.classList.remove("hidden");
+
+      const profileData = localStorage.getItem("profile");
+      if (profileData) {
+        try {
+          const profile = JSON.parse(profileData);
+          const basics = profile?.data?.basics;
+          if (basics?.avatar_url) {
+            profileImg.src = basics.avatar_url;
+            profileImg.style.display = "block";
+            profileInitials.style.display = "none";
+          } else {
+            const firstName = basics?.first_name || "";
+            const lastName = basics?.last_name || "";
+            const email = basics?.email || user.email || "";
+            const initials = getInitials(firstName, lastName, email);
+            const bgColor = getAvatarColor(email);
+
+            profileInitials.textContent = initials;
+            profileInitials.style.backgroundColor = bgColor;
+            profileInitials.style.display = "flex";
+            profileImg.style.display = "none";
+          }
+        } catch (e) {
+          const email = user.email || "";
+          const initials = getInitials("", "", email);
+          const bgColor = getAvatarColor(email);
+
+          profileInitials.textContent = initials;
+          profileInitials.style.backgroundColor = bgColor;
+          profileInitials.style.display = "flex";
+          profileImg.style.display = "none";
+        }
+      } else {
+        const email = user.email || "";
+        const initials = getInitials("", "", email);
+        const bgColor = getAvatarColor(email);
+
+        profileInitials.textContent = initials;
+        profileInitials.style.backgroundColor = bgColor;
+        profileInitials.style.display = "flex";
+        profileImg.style.display = "none";
+      }
+    } else {
+      authBtn.style.display = "inline-flex";
+      profileContainer.classList.add("hidden");
+    }
+  }
+
+  profileContainer?.addEventListener("click", () => {
+    const appUrl = navbar.dataset.appUrl || "http://localhost:5173";
+    window.location.href = `${appUrl}/dashboard`;
+  });
+
+  updateAuthState();
+
+  // منوی موبایل
+  if (menuToggle && navLinks && menuIcon) {
+    menuToggle.addEventListener("click", () => {
+      menuOpen = !menuOpen;
+
+      if (menuOpen) {
+        navLinks.classList.remove("hidden");
+        navLinks.classList.add("flex");
+        menuIcon.textContent = "✕";
+      } else {
+        navLinks.classList.add("hidden");
+        navLinks.classList.remove("flex");
+        menuIcon.textContent = "☰";
+      }
+    });
+  }
+
+  // انیمیشن اسکرول
+  window.addEventListener("scroll", () => {
+    const scrollY = window.scrollY;
+    const maxScroll = 800;
+    const progress = Math.min(scrollY / maxScroll, 1);
+
+    const eased =
+      progress < 0.5
+        ? 4 * progress * progress * progress
+        : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
+    const margin = 80 - eased * 80;
+    const topMargin = 20 - eased * 20;
+    const radius = 60 - eased * 60;
+    const shadowOpacity = 0.2 + eased * 0.1;
+
+    navbar.style.width = `calc(100% - ${margin}px)`;
+    navbar.style.borderRadius = `${radius}px`;
+    navbar.style.backgroundColor = `rgba(255,255,255,0.6)`;
+    navbar.style.boxShadow = `0 10px 15px -3px rgba(0, 9, 87, ${shadowOpacity})`;
+    navbar.style.top = `${topMargin}px`;
+    navbar.style.padding = `16px 24px`;
+  });
+</script>

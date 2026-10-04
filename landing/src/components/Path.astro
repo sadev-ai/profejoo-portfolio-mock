@@ -1,0 +1,158 @@
+---
+const steps = [
+  {
+    title: "Upload CV",
+    desc:
+      "Start by uploading your academic CV so Profejoo can understand your background, interests, and goals.",
+    icon: "uil-file-upload",
+  },
+  {
+    title: "Find Universities",
+    desc:
+      "Discover universities and programs that align with your research interests and field of study.",
+    icon: "uil-university",
+  },
+  {
+    title: "Explore Professors",
+    desc:
+      "Explore and follow professors whose research areas match your goals and feel like a good fit.",
+    icon: "uil-search", // 🔍 ذره‌بین
+  },
+  {
+    title: "Personalized CV & SOP",
+    desc:
+      "Generate a tailored CV and Statement of Purpose based on your strengths and the opportunities you target.",
+    icon: "uil-user-circle", // 👤 حالت user (اگه ساده‌تر بخوای: "uil-user")
+  },
+];
+
+
+---
+
+<section class="py-16 lg:py-24">
+  <div class="mx-auto max-w-[1180px] px-5 text-center">
+    <!-- تیتر -->
+    <h2
+      class="text-3xl md:text-4xl font-extrabold tracking-tight text-[var(--primary-400)]"
+    >
+      Find your
+      <span class="text-[var(--secondary-400)]">path</span>
+      to apply!
+    </h2>
+
+    <div
+      class="mt-2 mx-auto h-[3px] w-20 rounded-full bg-[var(--secondary-400)]"
+    />
+
+    <p
+      class="mt-3 mx-auto max-w-xl text-sm md:text-base text-[var(--primary-400)]"
+    >
+      Follow a simple, step-by-step journey designed to guide you from profile
+      creation to finding your ideal professor.
+    </p>
+
+    <div class="mx-auto mt-10 lg:mt-12 max-w-[960px]">
+      <!-- کارت‌های بالا -->
+      <div
+        class="grid gap-6 lg:grid-cols-4"
+        role="list"
+      >
+        {steps.map((st, index) => (
+          <article
+            role="listitem"
+            class="
+              group flex min-h-[190px] flex-col items-center justify-center gap-2
+              rounded-[32px]
+              bg-[color-mix(in_oklab,var(--secondary-400)_9%,white)]
+              text-[var(--primary-400)]
+              shadow-[0_10px_20px_rgba(0,0,0,0.07)]
+              transition duration-150
+              hover:-translate-y-1
+              hover:bg-[var(--secondary-400)]
+              hover:text-white
+              hover:shadow-[0_18px_36px_rgba(0,0,0,0.18)]
+            "
+          >
+            <span
+              class="
+                text-[0.7rem] uppercase tracking-[0.12em]
+                text-[var(--primary-400)] opacity-80
+                group-hover:text-[#dbeafe]
+              "
+            >
+              Step {index + 1}
+            </span>
+
+            <div
+              class="text-[2.1rem]"
+              aria-hidden="true"
+            >
+              <i
+                class={`uil ${st.icon} leading-none`}
+              ></i>
+            </div>
+
+            <h3
+              class="
+                text-[1.05rem] font-bold
+                text-[var(--primary-400)]
+                group-hover:text-white
+              "
+            >
+              {st.title}
+            </h3>
+          </article>
+        ))}
+      </div>
+
+      <!-- تایم‌لاین -->
+      <div
+        class="relative mt-10 h-10 hidden lg:block"
+        aria-hidden="true"
+      >
+        <div
+          class="
+            absolute left-0 right-0 top-1/2 h-[3px]
+            -translate-y-1/2 rounded-full
+            bg-[var(--ring)]
+          "
+        />
+        <div
+          class="relative flex h-full items-center justify-between"
+        >
+          {steps.map(() => (
+            <div class="flex flex-1 justify-center">
+              <div
+                class="
+                  h-4 w-4 rounded-full
+                  bg-[var(--secondary-400)]
+                  border-[3px] border-[var(--background)]
+                  shadow-[0_0_0_3px_rgba(42,143,191,0.2)]
+                  transition-transform duration-150
+                  hover:scale-110 hover:shadow-[0_0_0_4px_rgba(42,143,191,0.32)]
+                "
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- توضیحات زیر هر استپ -->
+      <div
+        class="
+          mt-7 grid gap-5 text-left text-sm md:text-[0.95rem]
+          text-[var(--primary-400)]
+          lg:grid-cols-4
+        "
+      >
+        {steps.map((st) => (
+          <div>
+            <p class="m-0">
+              {st.desc}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

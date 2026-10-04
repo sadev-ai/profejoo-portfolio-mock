@@ -1,0 +1,19 @@
+.login-hero{
+    background-image: url('/assets/images/login-hero.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+@media (width<=80rem) {
+    .login-container{
+        background-image: url("/assets/images/login-hero-resposive.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 100vh;
+    }
+    .login-container img{
+        fill: white;
+        color: white;
+    }
+
+}

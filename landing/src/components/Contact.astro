@@ -1,0 +1,196 @@
+---
+const ICONS = {
+  phone: "/assets/icons/phone.svg",
+  mail:  "/assets/icons/mail.svg",
+  pin:   "/assets/icons/pin.svg",
+};
+---
+
+<section class="section m-2 md:m-8 px-2 md:px-8">
+  <div class="container-x">
+    <!-- قاب بیرونی: گرادیان آبی از پالت secondary/tertiary -->
+    <div
+      class="
+        rounded-[1.2rem] md:rounded-[2.5rem]
+        bg-[linear-gradient(135deg,var(--tertiary-400),var(--secondary-400))]
+        p-[1px]
+        shadow-[0_18px_45px_rgba(15,23,42,.18)]
+      "
+    >
+      <!-- داخل: گرادیان نرم‌تر + دو ستون -->
+      <div
+        class="
+          grid items-stretch gap-4 md:gap-10 rounded-[1.1rem] md:rounded-[2.4rem]
+          bg-[radial-gradient(circle_at_top_left,color-mix(in_oklab,var(--tertiary-300)75%,var(--secondary-300)),color-mix(in_oklab,var(--secondary-400)85%,var(--secondary-300)))]
+          p-3 md:p-6 md:grid-cols-2 md:p-10 lg:gap-14
+        "
+      >
+        <!-- ستون چپ: متن + اطلاعات تماس -->
+        <div class="flex min-h-full flex-col py-2 md:py-6 text-white">
+          <div class="space-y-1.5 md:space-y-3">
+            <h2 class="text-xl md:text-4xl font-extrabold leading-tight">
+              Ready to Get in Touch?
+            </h2>
+            <p class="max-w-[50ch] text-xs md:text-lg leading-snug md:leading-relaxed text-white/90">
+              Connect with our professional team today. We're here to provide expert guidance,
+              answer your questions, and assist you in taking the next step toward achieving your goals.
+            </p>
+          </div>
+
+          <ul class="mt-auto space-y-1.5 md:space-y-4 pt-2 md:pt-6">
+            <li class="flex items-center gap-2 md:gap-4">
+              <span
+                class="
+                  grid w-2/12 sm:w-2/12 h-10 md:h-14 place-items-center rounded-lg md:rounded-2xl
+                  bg-[var(--accent-400)]
+                  ring-1 ring-[color-mix(in_oklab,white_20%,transparent) 
+                "
+              >
+                <img src={ICONS.phone} alt="" class="h-4 md:h-6 w-4 md:w-6 invert" />
+              </span>
+              <div class="leading-tight md:leading-6 w-10/12 sm:w-10/12">
+                <div class="font-semibold text-xs md:text-base">Call Us</div>
+                <div class="opacity-90 text-[0.65rem] md:text-base">+98 21 8885 2341</div>
+              </div>
+            </li>
+
+            <li class="flex items-center gap-2 md:gap-4">
+              <span
+                class="
+                  grid w-2/12 sm:w-2/12 h-10 md:h-14 place-items-center rounded-lg md:rounded-2xl
+                  bg-[var(--accent-400)]
+                  ring-1 ring-[color-mix(in_oklab,white_20%,transparent) 
+                "
+              >
+                <img src={ICONS.mail} alt="" class="h-4 md:h-6 w-4 md:w-6 invert" />
+              </span>
+              <div class="leading-tight md:leading-6 w-10/12 sm:w-10/12">
+                <div class="font-semibold text-xs md:text-base">Email Us</div>
+                <div class="opacity-90 text-[0.65rem] md:text-base">info@example.com</div>
+              </div>
+            </li>
+
+            <li class="flex items-center gap-2 md:gap-4">
+              <span
+                class="
+                  grid w-2/12 sm:w-2/12 h-10 md:h-14 place-items-center rounded-lg md:rounded-2xl
+                  bg-[var(--accent-400)]
+                  ring-1 ring-[color-mix(in_oklab,white_20%,transparent) 
+                "
+              >
+                <img src={ICONS.pin} alt="" class="h-4 md:h-6 w-4 md:w-6 invert" />
+              </span>
+              <div class="leading-tight md:leading-6 w-10/12 sm:w-10/12" >
+                <div class="font-semibold text-xs md:text-base">Visit Us</div>
+                <div class="opacity-90 text-[0.65rem] md:text-base">
+                  Iran, Tehran, Iran University of Science and Technology
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- فرم سمت راست -->
+        <form
+          class="
+            flex min-h-full flex-col rounded-xl md:rounded-[2rem]
+            border border-[var(--border)]
+            bg-[var(--card)]
+            p-3 md:p-6 shadow-[0_16px_40px_rgba(15,23,42,.14)]
+          "
+        >
+          <div class="grid flex-1 gap-2 md:gap-4 py-2 md:py-4">
+            <label class="grid gap-0.5 md:gap-1">
+              <span class="text-xs md:text-sm font-medium text-[var(--muted-foreground)]">
+                Full Name
+              </span>
+              <input
+                name="name"
+                placeholder="Ali Mohammadi"
+                required
+                class="
+                  rounded-lg md:rounded-xl border border-[var(--input)]
+                  px-2 md:px-3 py-1 md:py-2 text-xs md:text-[15px] leading-tight md:leading-6 outline-none
+                  focus:border-[var(--secondary-400)]
+                  focus:ring-1 md:focus:ring-2
+                  focus:ring-[color-mix(in_oklab,var(--secondary-400)25%,transparent)]
+                "
+              />
+            </label>
+
+            <label class="grid gap-0.5 md:gap-1">
+              <span class="text-xs md:text-sm font-medium text-[var(--muted-foreground)]">
+                Email
+              </span>
+              <input
+                type="email"
+                name="email"
+                placeholder="info@example.com"
+                required
+                class="
+                  rounded-lg md:rounded-xl border border-[var(--input)]
+                  px-2 md:px-3 py-1 md:py-2 text-xs md:text-[15px] leading-tight md:leading-6 outline-none
+                  focus:border-[var(--secondary-400)]
+                  focus:ring-1 md:focus:ring-2
+                  focus:ring-[color-mix(in_oklab,var(--secondary-400)25%,transparent)]
+                "
+              />
+            </label>
+
+            <label class="grid gap-0.5 md:gap-1">
+              <span class="text-xs md:text-sm font-medium text-[var(--muted-foreground)]">
+                Phone Number
+              </span>
+              <input
+                name="phone"
+                placeholder="+98 912 000 2231"
+                class="
+                  rounded-lg md:rounded-xl border border-[var(--input)]
+                  px-2 md:px-3 py-1 md:py-2 text-xs md:text-[15px] leading-tight md:leading-6 outline-none
+                  focus:border-[var(--secondary-400)]
+                  focus:ring-1 md:focus:ring-2
+                  focus:ring-[color-mix(in_oklab,var(--secondary-400)25%,transparent)]
+                "
+              />
+            </label>
+
+            <label class="grid gap-0.5 md:gap-1">
+              <span class="text-xs md:text-sm font-medium text-[var(--muted-foreground)]">
+                Message
+              </span>
+              <textarea
+                rows="2"
+                name="message"
+                placeholder="Write your message here..."
+                class="
+                  rounded-lg md:rounded-xl border border-[var(--input)]
+                  px-2 md:px-3 py-1 md:py-2 text-xs md:text-[15px] leading-tight md:leading-6 outline-none
+                  focus:border-[var(--secondary-400)]
+                  focus:ring-1 md:focus:ring-2
+                  focus:ring-[color-mix(in_oklab,var(--secondary-400)25%,transparent)]
+                "
+              ></textarea>
+            </label>
+          </div>
+
+          <button
+            type="submit"
+            formaction="mailto:info@example.com"
+            class="
+              mt-2 md:mt-4 inline-flex w-full items-center justify-center
+              rounded-full bg-[var(--secondary-400)]
+              px-4 md:px-6 py-2 md:py-2.5 text-xs md:text-sm font-semibold text-white
+              shadow-[0_10px_20px_rgba(46,156,202,.45)]
+              transition-all
+              hover:bg-[var(--secondary-500)]
+              hover:shadow-[0_14px_30px_rgba(46,156,202,.55)]
+              active:translate-y-[1px]
+            "
+          >
+            Submit Request
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

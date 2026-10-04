@@ -1,0 +1,21 @@
+services:
+  app:
+    build:
+      context: ./app
+      args:
+        NPM_REGISTRY: ${NPM_REGISTRY:-https://registry.npmjs.org}
+        VITE_MOCK_MODE: "true"
+        VITE_DEFAULT_API_BASE_URL: "http://demo.local"
+    ports:
+      - "8090:80"
+
+  landing:
+    build:
+      context: ./landing
+      args:
+        NPM_REGISTRY: ${NPM_REGISTRY:-https://registry.npmjs.org}
+        PUBLIC_APP_URL: "http://localhost:8090"
+    ports:
+      - "8081:80"
+    depends_on:
+      - app
